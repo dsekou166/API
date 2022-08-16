@@ -14,5 +14,5 @@ public interface RegionService {
 	
 	String supprimer(Long Id);
 	
-	//Iterable<Object[]> getRegionSansP();
+	List<Object[]> getRegionSansP();
 }

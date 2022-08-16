@@ -26,4 +26,5 @@ public class Population {
     private int chiffre;
     private String annee;
 	private String langue;
+
 }

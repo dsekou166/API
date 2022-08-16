@@ -7,11 +7,13 @@ import com.ApplicationApiregion.Apiregion.entite.Pays;
 import com.ApplicationApiregion.Apiregion.entite.Population;
 import com.ApplicationApiregion.Apiregion.entite.region;
 
+import java.util.List;
+
 public interface RegionRepository extends JpaRepository<region, Long> {
 
 	void save(Population population);
 	void save(Pays pays);
-	//@Query(value="SELECT nom, code_region, activite, superfie,langue, chiffre,annee from region, population where region.population_id=population.id ")
-	//Iterable<Object[]> getRegionSansP();
+	@Query(value="SELECT nom, code_region, activite, superfie,langue, chiffre,annee from region, population where region.population_id=population.id ", nativeQuery = true)
+	List<Object[]> getRegionSansP();
 
 }

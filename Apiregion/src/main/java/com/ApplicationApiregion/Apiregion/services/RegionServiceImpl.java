@@ -15,10 +15,10 @@ import lombok.Data;
 public class RegionServiceImpl implements RegionService {
 
 	private final RegionRepository RegionRepository;
-	
+
 	@Override
 	public region creer(region region) {
-        
+
 		return RegionRepository.save(region);
 	}
 
@@ -31,14 +31,14 @@ public class RegionServiceImpl implements RegionService {
 	public region modifier(Long Id, region region) {
 		// TODO Auto-generated method stub
 		return RegionRepository.findById(Id)
-				.map(R->{
+				.map(R -> {
 					R.setCode_region(region.getCode_region());
 					R.setNom(region.getNom());
 					R.setActivite(region.getActivite());
 					R.setSuperficie(region.getSuperficie());
 					R.setPopulation(region.getPopulation());
 					return RegionRepository.save(R);
-				}).orElseThrow(()->new RuntimeException("Region non trouvée"));
+				}).orElseThrow(() -> new RuntimeException("Region non trouvée"));
 	}
 
 	@Override
@@ -48,11 +48,12 @@ public class RegionServiceImpl implements RegionService {
 		return "Region supprimée";
 	}
 
-	//@Override
-	//public Iterable<Object[]> getRegionSansP() {
+	@Override
+	public List<Object[]> getRegionSansP() {
 		// TODO Auto-generated method stub
-		//return RegionRepository.getRegionSansP();
+		return RegionRepository.getRegionSansP();
 	}
+}
 	
 
 
